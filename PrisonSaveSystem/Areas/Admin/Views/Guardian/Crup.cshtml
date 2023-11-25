@@ -1,0 +1,74 @@
+﻿@model core.Model.ViewModels.GuardianVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Guardian @(Model.Guardian.GuardianId <= 0 ? "Add" : "Edit")</h2>
+
+
+<form method="post" enctype="multipart/form-data">
+
+    <input asp-for="Guardian.GuardianId" type="hidden" />
+  
+
+    <div class="row my-1">
+        <label asp-for="Guardian.GuardianName"></label>
+        <input asp-for="Guardian.GuardianName" class="form-control" />
+
+    </div>
+
+    <div class="row my-1">
+        <label asp-for="Guardian.PhoneNumber"></label>
+        <input asp-for="Guardian.PhoneNumber" class="form-control" />
+
+    </div>
+
+   
+    <div class="form-check">
+        <label asp-for="Guardian.Gender">
+            Gender<br />
+
+            <input type="radio" class="form-check-inline" name="Guardian.Gender" value="true" />Erkek
+
+            <input type="radio" class="form-check-inline" name="Guardian.Gender" value="false" />Kadın
+
+        </label>
+    </div>
+  
+
+   
+
+    <div class="row my-1">
+
+        <label asp-for="Guardian.ManagerId"></label>
+        <select asp-for="Guardian.ManagerId" asp-items="@Model.PrisonManagerList" class="form-control">
+            <option disabled selected>--Manager select </option>
+
+
+        </select>
+
+    </div>
+
+    <div class="row my-1">
+
+        <label asp-for="Guardian.BlockId"></label>
+        <select asp-for="Guardian.BlockId" asp-items="@Model.PrisonBlockList" class="form-control">
+            <option disabled selected>--Block select </option>
+
+
+        </select>
+
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">@(Model.Guardian.GuardianId <= 0 ? "Add" : "Edit")</button>
+
+
+
+
+
+
+
+</form>
+

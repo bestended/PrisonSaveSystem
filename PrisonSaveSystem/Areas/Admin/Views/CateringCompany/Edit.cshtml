@@ -1,0 +1,45 @@
+﻿@model core.Model.CateringCompany
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" style="margin-left:100px;">
+    <div class="row">
+        <div class="col-6 offset-3 border border-4 rounded rounded-3 p-4">
+            <h3 class="text-info p-2 m-1 text-center">Update Catering Company</h3>
+            <form method="post" asp-action="Edit">
+                <div class="form-check">
+                    <label asp-for="CompanyName"></label>
+                    <input type="text" asp-for="CompanyName" class="form-control" placeholder="Enter Company Name" />
+                    <input type="hidden" asp-for="CateringId" />
+                    <span class="text-danger" asp-validation-for="CompanyName"></span>
+                </div>
+
+             
+                <div class="form-check">
+                    <label asp-for="CompanyPhone"></label>
+                    <input type="text" asp-for="CompanyPhone" class="form-control" placeholder="Enter Company Phone" />
+                    <span class="text-danger" asp-validation-for="CompanyPhone"></span>
+
+                </div>
+                <div class="form-check">
+                    <label asp-for="Place"></label>
+                    <input type="text" asp-for="Place" class="form-control" placeholder="Enter place" />
+                    <span class="text-danger" asp-validation-for="Place"></span>
+
+                </div>
+
+                <div class="form-check">
+                    <label asp-for="OfficialName"></label>
+                    <input type="text" asp-for="OfficialName" class="form-control" placeholder="Enter Official Name" />
+                    <span class="text-danger" asp-validation-for="OfficialName"></span>
+
+                </div>
+                <div>
+                    <input type="submit" class="btn btn-sm btn-warning m-2 p-2 float-end" value="Update" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<core.Model.PrisonBlock>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>PrisonBlock List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="PrisonBlock" asp-action="Create" class="btn btn-primary">
+                <span>PrisonBlock Add</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped my-2">
+            <thead>
+                <tr>
+                    <th>Block Name</th>
+                    <th>Block Direction</th>
+                 
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var prisonBlock in Model)
+                {
+                    <tr>
+
+                        <td>@prisonBlock.BlockName</td>
+                        <td>@prisonBlock.BlockDirection</td>
+                     
+
+                        <td>
+                            <a asp-controller="PrisonBlock" asp-action="Edit" asp-route-id="@prisonBlock.BlockId" class="btn btn-warning">
+                                Edit
+                            </a>
+                            <a asp-controller="PrisonBlock" asp-action="Delete" asp-route-id="@prisonBlock.BlockId" class="btn btn-danger">
+                                Delete
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+
+
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<core.Model.Prisoner>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Prisoner List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Prisoner" asp-action="Crup" class="btn btn-primary">
+                <span>New Prisoner Add</span>
+            </a>
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <table class="table table-bordered table-striped my-2">
+
+            <thead>
+                <tr>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>LastName</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Crime</th>
+                    <th>EnterDate</th>
+                    <th>ExitDate</th>
+                    <th>Duration</th>
+                    <th>Ward Id</th>
+                   
+
+                </tr>
+
+
+            </thead>
+            <tbody>
+                
+                @foreach (var prisoner in Model)
+                {
+
+
+                    <tr>
+                        <td><img src="@prisoner.Picture" style="width:80px;" /></td>
+                        <td>@prisoner.PrisonerName</td>
+                        <td>@prisoner.PrisonerLastname</td>
+                        <td>@prisoner.Age</td>
+
+                        <td>
+                            @if (prisoner.Gender==true)
+                            {
+                                <span>Erkek</span>
+                            }
+                            else
+                            {
+                                <span>Kadın</span>
+                            }
+
+
+                        </td>
+
+                        
+                        <td>@prisoner.PrisonersCrime</td>
+                        <td>@prisoner.EnterDate</td>
+                        <td>@prisoner.ExitDate</td>
+                        <td>@prisoner.CrimeDuration</td>
+                        <td>@prisoner.PrisonWardId</td>
+                        <td>
+
+                            <a asp-controller="Prisoner" asp-action="Crup" asp-route-id="@prisoner.PrisonerId" class="btn btn-warning">Edit</a>
+                            <a asp-controller="Prisoner" asp-action="Delete" asp-route-id="@prisoner.PrisonerId" class="btn btn-danger">Delete</a>
+
+
+                        </td>
+                    </tr>
+                   
+
+                }
+
+            
+
+            </tbody>
+        </table>
+
+    </div>
+    
+
+
+
+
+</div>

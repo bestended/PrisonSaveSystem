@@ -1,0 +1,120 @@
+﻿@model core.Model.ViewModels.PrisonerVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="margin-left:100px;">
+    <h2>Prisoner @(Model.Prisoner.PrisonerId <= 0 ? "Add" : "Edit")</h2>
+
+
+
+    <form method="post" enctype="multipart/form-data">
+
+        <input asp-for="Prisoner.PrisonerId" type="hidden" />
+        <input asp-for="Prisoner.Picture" type="hidden" />
+
+
+        @if (@Model != null)
+        {
+            <div class="row">
+                <div class="col-6">
+
+                    <img src="@Model.Prisoner.Picture" style="width:250px;" />
+                </div>
+                <div class="form-check col-6">
+                    <label asp-for="Prisoner.Gender">
+                        Gender<br />
+
+                        <input type="radio" class="form-check-inline" name="Prisoner.Gender" value="true" />Erkek
+
+                        <input type="radio" class="form-check-inline" name="Prisoner.Gender" value="false" />Kadın
+
+                    </label>
+                </div>
+
+
+            </div>
+        }
+
+        <div class="row my-1">
+            <label asp-for="Prisoner.PrisonerName"></label>
+            <input asp-for="Prisoner.PrisonerName" class="form-control" />
+
+        </div>
+
+        <div class="row my-1">
+            <label asp-for="Prisoner.PrisonerLastname"></label>
+            <input asp-for="Prisoner.PrisonerLastname" class="form-control" />
+
+        </div>
+
+        <div class="row my-1">
+            <label asp-for="Prisoner.Age"></label>
+            <input asp-for="Prisoner.Age" class="form-control" />
+
+        </div>
+        @*   <div class="form-check">
+        <label asp-for="Prisoner.Gender">
+        Gender<br />
+
+        <input type="radio" class="form-check-inline" name="Prisoner.Gender" value="true" />Erkek
+
+        <input type="radio" class="form-check-inline" name="Prisoner.Gender" value="false" />Kadın
+
+        </label>
+        </div>*@
+
+
+        <div class="row my-1">
+            <label asp-for="Prisoner.PrisonersCrime"></label>
+            <input asp-for="Prisoner.PrisonersCrime" class="form-control" />
+
+        </div>
+
+        <div class="row my-1">
+            <label asp-for="Prisoner.EnterDate"></label>
+            <input asp-for="Prisoner.EnterDate" class="form-control" />
+
+        </div>
+        <div class="row my-1">
+            <label asp-for="Prisoner.ExitDate"></label>
+            <input asp-for="Prisoner.ExitDate" class="form-control" />
+
+        </div>
+        <div class="row my-1">
+            <label asp-for="Prisoner.CrimeDuration"></label>
+            <input asp-for="Prisoner.CrimeDuration" class="form-control" />
+
+        </div>
+
+
+        <div class="row my-1">
+
+            <label asp-for="Prisoner.PrisonWardId"></label>
+            <select asp-for="Prisoner.PrisonWardId" asp-items="@Model.PrisonWardList" class="form-control">
+                <option disabled selected>--Ward select </option>
+
+
+            </select>
+
+        </div>
+
+
+        <div class="row my-1">
+            <label asp-for=Prisoner.Picture></label>
+            <input type="file" id="file" name="file" accept="image/*" class="form-control" value="" />
+          
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-primary">@(Model.Prisoner.PrisonerId <= 0 ? "Add" : "Edit")</button>
+        </div>
+
+
+
+
+
+
+    </form>
+
+</div>

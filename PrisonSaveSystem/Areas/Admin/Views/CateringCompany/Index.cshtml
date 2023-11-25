@@ -1,0 +1,61 @@
+﻿@model IEnumerable<core.Model.CateringCompany>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Catering Company List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="CateringCompany" asp-action="Create" class="btn btn-primary">
+                <span>CateringCompany Add</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped my-2">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Compny Phone</th>
+                    <th>Company Place</th>
+                    <th>Official Name</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var cateringCompany in Model)
+                {
+                    <tr>
+
+                        <td>@cateringCompany.CompanyName</td>
+                        <td>@cateringCompany.CompanyPhone</td>
+                        <td>@cateringCompany.Place</td>
+                        <td>@cateringCompany.OfficialName</td>
+                       
+                        <td>
+                            <a asp-controller="CateringCompany" asp-action="Edit" asp-route-id="@cateringCompany.CateringId" class="btn btn-primary">
+                                Edit
+                            </a>
+                            <a asp-controller="CateringCompany" asp-action="Delete" asp-route-id="@cateringCompany.CateringId" class="btn btn-danger">
+                                Delete
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+
+
+        </table>
+    </div>
+
+</div>

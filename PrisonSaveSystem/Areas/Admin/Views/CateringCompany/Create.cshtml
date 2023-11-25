@@ -1,0 +1,45 @@
+﻿@model core.Model.CateringCompany
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3 border border-4 rounded rounded-3 p-4">
+            <h3 class="text-info p-2 m-1 text-center">Add CateringCompany</h3>
+            <form method="post" asp-action="Create">
+                <div class="form-check">
+                    <label asp-for="CompanyName"></label>
+                    <input type="text" asp-for="CompanyName" class="form-control" placeholder="Enter Company Name" />
+
+                </div>
+                <div class="form-check">
+                    <label asp-for="CompanyPhone"></label>
+                    <input type="text" asp-for="CompanyPhone" class="form-control" placeholder="Enter Company Phone" />
+
+                </div>
+                <div class="form-check">
+                    <label asp-for="Place"></label>
+                    <input type="text" asp-for="Place" class="form-control" placeholder="Enter Place" />
+
+                </div>
+                <div class="form-check">
+                    <label asp-for="OfficialName"></label>
+                    <input type="text" asp-for="OfficialName" class="form-control" placeholder="Enter Official Name" />
+
+                </div>
+
+
+
+                <div class="form-check">
+                   
+                    <div>
+                        <input type="submit" class="btn btn-sm btn-primary m-2 p-2 float-end" value="Save" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<core.Model.Guardian>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Guardian List</h2>
+        </div>
+        <div class="col-6">
+            <a asp-controller="Guardian" asp-action="Crup" class="btn btn-primary">
+                <span>Guardian Add</span>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped my-2">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Gender</th>
+                    <th>Manager Id</th>
+                    <th>Block Id</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var guardian in Model)
+                {
+                    <tr>
+
+                        <td>@guardian.GuardianName</td>
+                        <td>@guardian.PhoneNumber</td>
+                        <td>
+                            @if (guardian.Gender == true)
+                            {
+                                <span>Erkek</span>
+                            }
+                            else
+                            {
+                                <span>Kadın</span>
+                            }
+
+
+                        </td>
+                        <td>@guardian.ManagerId</td>
+                        <td>@guardian.BlockId</td>
+                        <td>
+                            <a asp-controller="Guardian" asp-action="Crup" asp-route-id="@guardian.GuardianId" class="btn btn-warning">
+                                Edit
+                            </a>
+                            <a asp-controller="Guardian" asp-action="Delete" asp-route-id="@guardian.GuardianId" class="btn btn-danger">
+                                Delete
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+
+
+
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,62 @@
+﻿@model core.Model.ViewModels.PrisonWardVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>PrisonWard @(Model.PrisonWard.PrisonWardId <= 0 ? "Add" : "Edit")</h2>
+
+
+<form method="post" enctype="multipart/form-data">
+
+    <input asp-for="PrisonWard.PrisonWardId" type="hidden" />
+  
+
+
+    <div class="row my-1">
+        <label asp-for="PrisonWard.WardBlock"></label>
+        <input asp-for="PrisonWard.WardBlock" class="form-control" />
+
+    </div>
+
+    <div class="row my-1">
+        <label asp-for="PrisonWard.WardNumber"></label>
+        <input asp-for="PrisonWard.WardNumber" class="form-control" />
+
+    </div>
+
+    <div class="row my-1">
+        <label asp-for="PrisonWard.Size"></label>
+        <input asp-for="PrisonWard.Size" class="form-control" />
+
+    </div>
+    <div class="row my-1">
+        <label asp-for="PrisonWard.HowManyPrisonNum"></label>
+        <input asp-for="PrisonWard.HowManyPrisonNum" class="form-control" />
+
+    </div>
+   
+   
+    <div class="row my-1">
+
+        <label asp-for="PrisonWard.BlockId"></label>
+        <select asp-for="PrisonWard.BlockId" asp-items="@Model.PrisonBlockList" class="form-control">
+            <option disabled selected>--Block select </option>
+
+
+        </select>
+
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-primary">@(Model.PrisonWard.PrisonWardId <= 0 ? "Add" : "Edit")</button>
+
+
+
+
+
+
+
+</form>
+

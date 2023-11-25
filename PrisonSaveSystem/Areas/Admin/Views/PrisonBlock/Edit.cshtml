@@ -1,0 +1,33 @@
+﻿@model core.Model.PrisonBlock
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3 border border-4 rounded rounded-3 p-4">
+            <h3 class="text-info p-2 m-1 text-center">Update PrisonBlock</h3>
+            <form method="post" asp-action="Edit">
+                <div class="form-check">
+                    <label asp-for="BlockName"></label>
+                    <input type="text" asp-for="BlockName" class="form-control" placeholder="Enter Company Name" />
+                    <input type="hidden" asp-for="BlockId" />
+                    <span class="text-danger" asp-validation-for="BlockName"></span>
+                </div>
+
+
+                <div class="form-check">
+                    <label asp-for="BlockDirection"></label>
+                    <input type="text" asp-for="BlockDirection" class="form-control" placeholder="Enter Company Phone" />
+                    <span class="text-danger" asp-validation-for="BlockDirection"></span>
+
+                </div>
+              
+                <div>
+                    <input type="submit" class="btn btn-sm btn-warning m-2 p-2 float-end" value="Update" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

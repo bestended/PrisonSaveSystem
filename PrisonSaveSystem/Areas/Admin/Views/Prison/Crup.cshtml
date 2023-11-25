@@ -1,0 +1,63 @@
+﻿@model core.Model.ViewModels.PrisonVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Prison @(Model.Prison.PrisonId <= 0 ? "Add" : "Edit")</h2>
+
+
+<form method="post" enctype="multipart/form-data">
+
+    <input asp-for="Prison.PrisonId" type="hidden" />
+
+
+
+    <div class="row my-1">
+        <label asp-for="Prison.PrisonPlace"></label>
+        <input asp-for="Prison.PrisonPlace" class="form-control" />
+
+    </div>
+
+    <div class="row my-1">
+        <label asp-for="Prison.Phone"></label>
+        <input asp-for="Prison.Phone" class="form-control" />
+
+    </div>
+
+    <div class="row my-1">
+        <label asp-for="Prison.BlockCount"></label>
+        <input asp-for="Prison.BlockCount" class="form-control" />
+
+    </div>
+    <div class="row my-1">
+        <label asp-for="Prison.Size"></label>
+        <input asp-for="Prison.Size" class="form-control" />
+
+    </div>
+
+
+    <div class="row my-1">
+
+        <label asp-for="Prison.CateringId"></label>
+        <select asp-for="Prison.CateringId" asp-items="@Model.CateringCompaniesList" class="form-control">
+            <option disabled selected>--Catering Company select </option>
+
+
+        </select>
+
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-primary">@(Model.Prison.PrisonId <= 0 ? "Add" : "Edit")</button>
+
+
+
+
+
+
+
+</form>
+

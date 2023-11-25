@@ -1,0 +1,59 @@
+﻿@model core.Model.ViewModels.VisitorVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Visitor @(Model.Visitor.VisitorId <= 0 ? "Add" : "Edit")</h2>
+
+<form method="post">
+
+    <input asp-for="Visitor.VisitorId" type="hidden" />
+
+
+    <div class="row my-1">
+        <label asp-for="Visitor.idendificationNum"></label>
+        <input asp-for="Visitor.idendificationNum" class="form-control" />
+
+    </div>
+
+    <div class="row my-1">
+
+        <label asp-for="Visitor.VisitorName"></label>
+        <input asp-for="Visitor.VisitorName" class="form-control" />
+
+    </div>
+
+    <div class="row my-1">
+
+        <label asp-for="Visitor.VisitorLastname"></label>
+        <input asp-for="Visitor.VisitorLastname" class="form-control" />
+
+    </div>
+    <div class="row my-1">
+
+        <label asp-for="Visitor.Phone"></label>
+        <input asp-for="Visitor.Phone" class="form-control" />
+
+    </div>
+    <div class="row my-1">
+
+        <label asp-for="Visitor.PrisonerId"></label>
+        <select asp-for="Visitor.PrisonerId" asp-items="@Model.PrisonerList" class="form-control">
+            <option disabled selected>--prisoner select </option>
+
+
+        </select>
+
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">@(Model.Visitor.VisitorId <= 0 ? "Add" : "Edit")</button>
+
+
+
+
+
+
+
+</form>
